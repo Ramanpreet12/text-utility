@@ -5,7 +5,7 @@ import About from "./components/About";
 import TextForm from "./components/TextForm";
 import NoPage from "./components/NoPage";
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState("light");
   const [containerStyle, setContainerStyle] = useState({
@@ -48,7 +48,7 @@ function App() {
   };
   return (
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
       <Navbar
         title="Text Utility Blog"
         aboutText="About Text Utils"
@@ -57,8 +57,15 @@ function App() {
       ></Navbar>
       <Alert alert={alert}></Alert>
       <div className="container">
-        
-        <Routes>
+      <TextForm
+            showAlert={showAlert}
+            heading="Enter your text to analyze below"
+            textareaStyle={textareaStyle}
+            mode={mode}
+            style={containerStyle}
+            toggleMode={toggleMode}
+          ></TextForm>
+        {/* <Routes>
           <Route path="/" element={<TextForm
             showAlert={showAlert}
             heading="Enter your text to analyze below"
@@ -70,12 +77,12 @@ function App() {
           
           <Route path="about" element={<About></About> }></Route>
           <Route path="*" element={ <NoPage></NoPage>}></Route>
-          {/* <About></About> */}
-          </Routes>
+          
+          </Routes> */}
        
       
       </div>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </>
   );
 }
